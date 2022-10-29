@@ -19,11 +19,17 @@ export default function Home() {
       </Head>
       <Header />
       <div className={styles.main}>
-        <div className={styles.titleItems}>
+        <div className={styles.pageItems}>
           <div className={styles.title}>Bookmark Manager</div>
-          {/* <div className={styles.addNew} onClick={() => setIsOpen(!modalIsOpen)}>
-            Button
-          </div> */}
+          <div className={styles.addBookmark}>
+            <Button onClick={() => setIsOpen(!modalIsOpen)}>Add Bookmark</Button>
+          </div>
+
+          {/* show two sections for cards */}
+          <div className={styles.flexDirection}>
+            <div className={styles.card}>Here are the card items</div>
+            <div className={styles.card}>Here are the card items</div>
+          </div>
         </div>
       </div>
       <Modal isOpen={modalIsOpen} setIsOpen={setIsOpen}>

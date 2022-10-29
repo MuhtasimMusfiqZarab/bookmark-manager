@@ -16,12 +16,16 @@
   margin-top: 10rem;
   width: 100%;
 
-  .titleItems {
+  .pageItems {
+    margin-left: 2rem;
+
     display: flex;
     justify-content: center;
     width: 100%;
     flex: 1;
     align-items: center;
+    flex-direction: column;
+    gap: 1rem;
     .title {
       align-items: center;
       margin-right: 0;
@@ -29,8 +33,9 @@
       font-size: 20px;
       justify-content: center;
     }
-    .addNew {
-      float: right;
+    .addBookmark {
+      margin-left: auto;
+      margin-right: 3rem;
     }
   }
 }
@@ -40,4 +45,20 @@
   .close {
     flex: 1;
   }
+}
+
+.card {
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 10px #c4c4c4;
+  overflow-y: scroll;
+  height: 5rem;
+  width: 100%;
+}
+
+.flexDirection {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
 }
