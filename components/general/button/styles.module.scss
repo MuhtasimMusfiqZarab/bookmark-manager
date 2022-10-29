@@ -2,11 +2,11 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: $color;
+  color: #4f546c;
   font-family: 'Montserrat', 'Helvetica';
   font-weight: 500;
   line-height: 1;
-  border: 1px solid $color;
+  border: 1px solid #4f546c;
   border-radius: 6px;
   background: transparent;
   padding: 0.6rem 1rem;
@@ -17,18 +17,18 @@
 
   &:hover {
     color: #fff;
-    border-color: $color;
-    background: $color;
+    border-color: #4f546c;
+    background: #4f546c;
   }
 
   &_fill_primary {
-    background: $color;
-    border-color: $color;
+    background: #4f546c;
+    border-color: #4f546c;
     color: #fff;
 
     &:hover {
-      background: $color;
-      border-color: $color;
+      background: #4f546c;
+      border-color: #4f546c;
     }
   }
 }

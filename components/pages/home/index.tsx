@@ -16,16 +16,20 @@ export default function Home() {
         <meta property="og:search" content="Search" key="search" />
         <link rel="shortcut icon" href="/search.svg" />
       </Head>
-      <div>
-        {/* two components with  */}
-        <div className={styles.title}>
-          <div>Bookmark Manager</div>
-          <div>Button</div>
+      <div className={styles.main}>
+        <div className={styles.titleItems}>
+          <div className={styles.title}>Bookmark Manager</div>
+          <div className={styles.addNew}>Button</div>
         </div>
       </div>
       <Modal isOpen={modalIsOpen} setIsOpen={setIsOpen}>
         <div className={styles.items}>
-          <div className={styles.title}>Add Bookmark</div>
+          <div style={{ display: 'flex' }}>
+            <div className={styles.title}>Add Bookmark</div>
+            <div className={styles.close} onClick={() => setIsOpen(!modalIsOpen)}>
+              X
+            </div>
+          </div>
 
           <Input setInputText={setTitleText} inputText={titleText} placeholder="Title" />
           <Input setInputText={setUrlText} inputText={urlText} placeholder="Url" />

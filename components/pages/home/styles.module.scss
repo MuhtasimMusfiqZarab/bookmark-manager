@@ -5,5 +5,24 @@
 
   .title {
     font-size: 1.5rem;
+    flex: 1;
+  }
+  .close {
+    margin-right: 0;
+  }
+}
+
+.main {
+  margin-top: 5rem;
+
+  .titleItems {
+    display: flex;
+    .title {
+      flex: 1;
+      margin-right: 0;
+    }
+    .addNew {
+      float: right;
+    }
   }
 }
