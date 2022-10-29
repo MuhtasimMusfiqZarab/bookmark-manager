@@ -6,11 +6,20 @@ import Header from '../../shared/header';
 import styles from './styles.module.scss';
 
 export default function Home() {
-  let [modalIsOpen, setIsOpen] = useState<boolean>(true);
+  let [modalIsOpen, setIsOpen] = useState<boolean>(false);
   let [titleText, setTitleText] = useState();
   let [urlText, setUrlText] = useState();
   let [category, setCategory] = useState();
   let [selected, setSelected] = useState(null);
+  let [allItems, setAllItems] = useState([]);
+  let [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    var retrieved = JSON.parse(localStorage.getItem('data'));
+    if (retrieved !== null) {
+      setAllItems(retrieved);
+    }
+  }, []);
 
   const handleSave = () => {
     try {
@@ -23,7 +32,10 @@ export default function Home() {
       if (!validateData(data)) {
         alert('title must be 0-30 characters long and url must be valid');
       } else {
-        localStorage.setItem('data', JSON.stringify(data));
+        setAllItems((oldArray) => {
+          localStorage.setItem('data', JSON.stringify([...oldArray, data]));
+          return [...oldArray, data];
+        });
         setIsOpen(!modalIsOpen);
       }
     } catch (error) {
@@ -48,8 +60,28 @@ export default function Home() {
 
           {/* show two sections for cards */}
           <div className={styles.flexDirection}>
-            <div className={styles.card}>Here are the card items</div>
-            {selected && <div className={styles.card}>Here are the card details</div>}
+            {allItems && (
+              <div className={styles.card}>
+                {allItems.map((item: any, index: any) => (
+                  <div key={index} className={styles.group}>
+                    <div>{item.title}</div>
+                    <Button onClick={() => setSelected(item)}>Details</Button>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            <div className={styles.card}>
+              {selected ? (
+                <>
+                  <div>Title: {selected.title}</div>
+                  <div>URL: {selected.url}</div>
+                  <div>Category: {selected.category}</div>
+                </>
+              ) : (
+                <div>Select to display</div>
+              )}
+            </div>
           </div>
         </div>
       </div>
@@ -65,11 +97,8 @@ export default function Home() {
           <Input setInputText={setUrlText} inputText={urlText} placeholder="Url" />
           <Input setInputText={setCategory} inputText={category} placeholder="Category" />
 
-          <div className={styles.buttonGroup}>
-            <div style={{ flex: 1 }}>
-              <Button onClick={() => setIsOpen(!modalIsOpen)}>Close</Button>
-            </div>
-
+          <div className={styles.group}>
+            <Button onClick={() => setIsOpen(!modalIsOpen)}>Close</Button>
             <Button onClick={handleSave}>Save</Button>
           </div>
         </div>

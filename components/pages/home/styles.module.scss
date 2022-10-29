@@ -9,6 +9,7 @@
   }
   .close {
     margin-right: 0;
+    cursor: pointer;
   }
 }
 
@@ -40,21 +41,25 @@
   }
 }
 
-.buttonGroup {
+.group {
   display: flex;
-  .close {
-    flex: 1;
-  }
+  justify-content: space-between;
 }
 
 .card {
   margin: 1rem;
+  text-overflow: hidden;
   padding: 1rem;
   border-radius: 0.5rem;
   box-shadow: 0 0 10px #c4c4c4;
   overflow-y: scroll;
-  height: 5rem;
+  height: 10rem;
   width: 100%;
+  word-wrap: break-word;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  line-height: 100%;
 }
 
 .flexDirection {
