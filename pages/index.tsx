@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import HomeLayout from 'components/layouts/home';
 import Home from 'components/pages/home';
 
 export default function index() {
@@ -10,11 +9,7 @@ export default function index() {
         <meta name="description" content="bookmark manager" />
         <link rel="icon" href="/bookmark.svg" />
       </Head>
-      <main>
-        <HomeLayout>
-          <Home />
-        </HomeLayout>
-      </main>
+      <Home />
     </div>
   );
 }

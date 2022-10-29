@@ -13,16 +13,31 @@
 }
 
 .main {
-  margin-top: 5rem;
+  margin-top: 10rem;
+  width: 100%;
 
   .titleItems {
     display: flex;
+    justify-content: center;
+    width: 100%;
+    flex: 1;
+    align-items: center;
     .title {
-      flex: 1;
+      align-items: center;
       margin-right: 0;
+      font-weight: 600;
+      font-size: 20px;
+      justify-content: center;
     }
     .addNew {
       float: right;
     }
+  }
+}
+
+.buttonGroup {
+  display: flex;
+  .close {
+    flex: 1;
   }
 }
