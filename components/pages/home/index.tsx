@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Modal, Input, Button } from 'components/general';
+import { validateData } from 'components/utils/validation';
 import Head from 'next/head';
 import Header from '../../shared/header';
 import styles from './styles.module.scss';
@@ -9,6 +10,26 @@ export default function Home() {
   let [titleText, setTitleText] = useState();
   let [urlText, setUrlText] = useState();
   let [category, setCategory] = useState();
+  let [selected, setSelected] = useState(null);
+
+  const handleSave = () => {
+    try {
+      const data = {
+        title: titleText,
+        url: urlText,
+        category: category
+      };
+
+      if (!validateData(data)) {
+        alert('title must be 0-30 characters long and url must be valid');
+      } else {
+        localStorage.setItem('data', JSON.stringify(data));
+        setIsOpen(!modalIsOpen);
+      }
+    } catch (error) {
+      alert(error.message);
+    }
+  };
 
   return (
     <div>
@@ -28,7 +49,7 @@ export default function Home() {
           {/* show two sections for cards */}
           <div className={styles.flexDirection}>
             <div className={styles.card}>Here are the card items</div>
-            <div className={styles.card}>Here are the card items</div>
+            {selected && <div className={styles.card}>Here are the card details</div>}
           </div>
         </div>
       </div>
@@ -49,7 +70,7 @@ export default function Home() {
               <Button onClick={() => setIsOpen(!modalIsOpen)}>Close</Button>
             </div>
 
-            <Button onClick={() => setIsOpen(!modalIsOpen)}>Save</Button>
+            <Button onClick={handleSave}>Save</Button>
           </div>
         </div>
       </Modal>
