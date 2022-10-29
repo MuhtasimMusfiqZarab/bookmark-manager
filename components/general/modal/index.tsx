@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './styles.module.scss';
 
-const Modal = ({ isOpen, setIsOpen, children }) => {
+export const Modal = ({ isOpen, setIsOpen, children }) => {
   return (
     <>
       {isOpen && (
@@ -15,5 +15,3 @@ const Modal = ({ isOpen, setIsOpen, children }) => {
     </>
   );
 };
-
-export default Modal;

@@ -1,0 +1,23 @@
+.search {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  //initial state of the input
+  input {
+    border: 1px solid #e1e5ee;
+    font-family: inherit;
+    font-size: 1rem;
+    color: #767b91;
+    outline: none;
+    width: 100%;
+    padding: 0.85rem;
+    border-radius: 0.2rem;
+
+    @media (max-width: 767px) {
+      padding: 0.85rem 2rem;
+    }
+  }
+}

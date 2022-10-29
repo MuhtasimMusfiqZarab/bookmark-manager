@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import { Logo, LogoText } from 'components/_icons';
 import styles from './styles.module.scss';
